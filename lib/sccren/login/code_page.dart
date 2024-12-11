@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:watergo_user/sccren/login/name_page.dart';
 
 class CodePage extends StatefulWidget {
   @override
@@ -80,8 +82,7 @@ class _OTPVerificationPageState extends State<CodePage> {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _isButtonEnabled ? () {
-                  final otpCode = _controllers.map((c) => c.text).join();
-                  print("Tasdiqlash kodi: $otpCode");
+                  Get.off(NamePage());
                 } : null,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.lightBlue,

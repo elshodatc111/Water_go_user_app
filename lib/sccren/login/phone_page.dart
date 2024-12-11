@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:watergo_user/sccren/login/code_page.dart';
 
 class PhonePage extends StatefulWidget {
   @override
@@ -92,7 +94,9 @@ class _PhonePageState extends State<PhonePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: ElevatedButton(
-                  onPressed: _isButtonEnabled ? () {} : null,
+                  onPressed: _isButtonEnabled ? () {
+                    Get.off(CodePage());
+                  } : null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.lightBlue,
                     minimumSize: const Size(double.infinity, 50),

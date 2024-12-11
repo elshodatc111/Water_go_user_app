@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:watergo_user/sccren/login/code_page.dart';
 import 'package:watergo_user/sccren/login/phone_page.dart';
 import 'package:watergo_user/sccren/splash/splash_page.dart';
 
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: CodePage(),
+      home: PhonePage(),
     );
   }
 }
