@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:watergo_user/sccren/home/map_page.dart';
 
 class ShowPage extends StatefulWidget {
   const ShowPage({super.key});
@@ -53,8 +54,7 @@ class _BuyurtmaHaqidaPageState extends State<ShowPage> {
                   top: 8,
                   left: 8,
                   child: Container(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
                       color: Colors.black54,
                       borderRadius: BorderRadius.circular(8),
@@ -81,21 +81,33 @@ class _BuyurtmaHaqidaPageState extends State<ShowPage> {
                 Positioned(
                   top: 8,
                   right: 8,
-                  child: Container(
-                    padding: EdgeInsets.zero,
-                    margin: EdgeInsets.zero,
-                    decoration: BoxDecoration(
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: IconButton(
-                      padding: EdgeInsets.zero,
-                      icon: const Icon(
-                        Icons.favorite_border,
-                        color: Colors.red,
-                        size: 16.0,
+                  child: GestureDetector(
+                    onTap: () {
+                      debugPrint('Sevimli');
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      onPressed: () {},
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.favorite_border,
+                            color: Colors.red,
+                            size: 16.0,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            'Sevimli',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -141,60 +153,97 @@ class _BuyurtmaHaqidaPageState extends State<ShowPage> {
                 );
               }).toList(),
             ),
-            const Spacer(),
+            const SizedBox(height: 16),
+            Center(
+              child: Text(
+                'Buyurtma soni',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500),
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  'Buyurtma soni:',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500,
+                Container(
+                  width: 48.0,
+                  height: 48.0,
+                  alignment: Alignment.topCenter,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        if (quantity > 1) {
+                          quantity--;
+                        }
+                      });
+                    },
+                    icon: Icon(Icons.exposure_minus_1),
                   ),
                 ),
-                const SizedBox(width: 8),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            if (quantity > 1) quantity--;
-                          });
-                        },
-                        icon: const Icon(Icons.remove, color: Colors.white),
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Text(
-                      '$quantity',
-                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(width: 16),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            quantity++;
-                          });
-                        },
-                        icon: const Icon(Icons.add, color: Colors.white),
-                      ),
-                    ),
-                  ],
+                const SizedBox(width: 16),
+                Text(
+                  '$quantity',
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(width: 16),
+                Container(
+                  width: 48.0,
+                  height: 48.0,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        quantity++;
+                      });
+                    },
+                    icon: Icon(Icons.plus_one_outlined),
+                  ),
                 ),
               ],
             ),
             const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Yetqazish manzili',
+                      style: TextStyle(
+                          fontSize: 20.0, fontWeight: FontWeight.w500),
+                    ),
+                    Text('Qarshi shaxari navo mfy'),
+                  ],
+                ),
+                Container(
+                  width: 48.0,
+                  height: 48.0,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MapPage()),
+                      );
+                    },
+                    icon: const Icon(Icons.location_on),
+                  ),
+                )
+              ],
+            ),
+            const Spacer(),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(

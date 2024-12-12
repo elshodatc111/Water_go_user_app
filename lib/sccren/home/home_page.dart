@@ -53,60 +53,86 @@ class Cards extends StatelessWidget {
         elevation: 3,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 12),
-          child: Row(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(
-                  'assets/images/logo1.png',
-                  width: 100,
-                  height: 80,
-                  fit: BoxFit.cover,
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    'assets/images/logo1.png',
+                    width: double.infinity,
+                    height: 200,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              const SizedBox(width: 10),
-              const Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Suv Fermasi Nomi',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                const Positioned(
+                  top: 8,
+                  left: 8,
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.star_border,
+                        size: 16,
+                        color: Colors.amberAccent,
                       ),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      "Narxi: 12 000 SO'M",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
+                      SizedBox(width: 4.0),
+                      Text(
+                        '4.9 (412)',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(width: 10),
-              const Row(
-                children: [
-                  Icon(
-                    Icons.star_border,
-                    size: 12,
+                const Positioned(
+                  top: 8,
+                  right: 8,
+                  child: Icon(
+                    Icons.heart_broken_sharp,
+                    size: 16,
                     color: Colors.amberAccent,
                   ),
-                  SizedBox(width: 4.0),
-                  Text(
-                    '4.9',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
+                ),
+                Positioned(
+                  bottom: 8,
+                  left: 8,
+                  right: 8,
+                  child: Container(
+                    padding: const EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.8),
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                  )
-                ],
-              ),
-            ],
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Suv Fermasi Nomi',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          "Narxi: 12 000 so'm",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -130,7 +156,7 @@ class MapButton extends StatelessWidget {
         children: [
           Icon(
             Icons.location_on,
-            size: 20.0,
+            size: 28.0,
             color: Color(0xffffffff),
           ),
           Column(
@@ -140,14 +166,14 @@ class MapButton extends StatelessWidget {
               Text(
                 'Buyurtma manzili',
                 style: TextStyle(
-                  fontSize: 8.0,
+                  fontSize: 16.0,
                   color: Color(0xffB2EBF2),
                 ),
               ),
               Text(
                 'Qarshi shaxar navo MFI 15/52 uy',
                 style: TextStyle(
-                  fontSize: 8.0,
+                  fontSize: 12.0,
                   color: Color(0xffB2EBF2),
                 ),
               ),
@@ -159,4 +185,3 @@ class MapButton extends StatelessWidget {
     );
   }
 }
-
